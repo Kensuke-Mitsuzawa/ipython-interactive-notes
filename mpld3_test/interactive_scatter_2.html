@@ -1,0 +1,156 @@
+
+
+<style>
+
+table
+{
+  border-collapse: collapse;
+}
+th
+{
+  color: #ffffff;
+  background-color: #000000;
+}
+td
+{
+  background-color: #cccccc;
+}
+table, th, td
+{
+  font-family:Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  text-align: right;
+}
+
+</style>
+
+<div id="fig_el4032944923084321301619155"></div>
+<script>
+function mpld3_load_lib(url, callback){
+  var s = document.createElement('script');
+  s.src = url;
+  s.async = true;
+  s.onreadystatechange = s.onload = callback;
+  s.onerror = function(){console.warn("failed to load library " + url);};
+  document.getElementsByTagName("head")[0].appendChild(s);
+}
+
+if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
+   // already loaded: just create the figure
+   !function(mpld3){
+       
+    mpld3.register_plugin("htmltooltip", HtmlTooltipPlugin);
+    HtmlTooltipPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HtmlTooltipPlugin.prototype.constructor = HtmlTooltipPlugin;
+    HtmlTooltipPlugin.prototype.requiredProps = ["id"];
+    HtmlTooltipPlugin.prototype.defaultProps = {labels:null, hoffset:0, voffset:10};
+    function HtmlTooltipPlugin(fig, props){
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HtmlTooltipPlugin.prototype.draw = function(){
+       var obj = mpld3.get_element(this.props.id);
+       var labels = this.props.labels;
+       var tooltip = d3.select("body").append("div")
+                    .attr("class", "mpld3-tooltip")
+                    .style("position", "absolute")
+                    .style("z-index", "10")
+                    .style("visibility", "hidden");
+
+       obj.elements()
+           .on("mouseover", function(d, i){
+                              tooltip.html(labels[i])
+                                     .style("visibility", "visible");})
+           .on("mousemove", function(d, i){
+                    tooltip
+                      .style("top", d3.event.pageY + this.props.voffset + "px")
+                      .style("left",d3.event.pageX + this.props.hoffset + "px");
+                 }.bind(this))
+           .on("mouseout",  function(d, i){
+                           tooltip.style("visibility", "hidden");});
+    };
+    
+       mpld3.draw_figure("fig_el4032944923084321301619155", {"axes": [{"xlim": [-2.0, 3.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "x", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el403294492493392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "y", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.0546875, 0.5], "rotation": -90.0, "id": "el403294492537744"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "HTML tooltips", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 20.0, "position": [0.5, 1.0144675925925926], "rotation": -0.0, "id": "el403294492192784"}], "zoomable": true, "images": [], "xdomain": [-2.0, 3.0], "ylim": [-2.0, 3.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [{"edgecolor": "#000000", "facecolor": "#0000FF", "edgewidth": 1, "yindex": 1, "coordinates": "data", "zorder": 2, "markerpath": [[[0.0, 7.5], [1.9890232500000002, 7.5], [3.896849030886401, 6.709752686911813], [5.303300858899107, 5.303300858899107], [6.709752686911813, 3.896849030886401], [7.5, 1.9890232500000002], [7.5, 0.0], [7.5, -1.9890232500000002], [6.709752686911813, -3.896849030886401], [5.303300858899107, -5.303300858899107], [3.896849030886401, -6.709752686911813], [1.9890232500000002, -7.5], [0.0, -7.5], [-1.9890232500000002, -7.5], [-3.896849030886401, -6.709752686911813], [-5.303300858899107, -5.303300858899107], [-6.709752686911813, -3.896849030886401], [-7.5, -1.9890232500000002], [-7.5, 0.0], [-7.5, 1.9890232500000002], [-6.709752686911813, 3.896849030886401], [-5.303300858899107, 5.303300858899107], [-3.896849030886401, 6.709752686911813], [-1.9890232500000002, 7.5], [0.0, 7.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]], "alpha": 0.6, "xindex": 0, "data": "data01", "id": "el403294493198352pts"}], "id": "el403294489549136", "ydomain": [-2.0, 3.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"voffset": 10, "labels": ["This value is made with random: 14", "This value is made with random: 47", "This value is made with random: 76", "This value is made with random: 7", "This value is made with random: 26", "This value is made with random: 91", "This value is made with random: 91", "This value is made with random: 9", "This value is made with random: 18", "This value is made with random: 95", "This value is made with random: 58", "This value is made with random: 3", "This value is made with random: 97", "This value is made with random: 76", "This value is made with random: 38", "This value is made with random: 29", "This value is made with random: 72", "This value is made with random: 103", "This value is made with random: 89", "This value is made with random: 54", "This value is made with random: 22", "This value is made with random: 9", "This value is made with random: 38", "This value is made with random: 122", "This value is made with random: 120", "This value is made with random: 46", "This value is made with random: 112", "This value is made with random: 116", "This value is made with random: 21", "This value is made with random: 44", "This value is made with random: 41", "This value is made with random: 39", "This value is made with random: 78", "This value is made with random: 26", "This value is made with random: 112", "This value is made with random: 2", "This value is made with random: 3", "This value is made with random: 33", "This value is made with random: 32", "This value is made with random: 83", "This value is made with random: 98", "This value is made with random: 25", "This value is made with random: 61", "This value is made with random: 36", "This value is made with random: 87", "This value is made with random: 7", "This value is made with random: 7", "This value is made with random: 59", "This value is made with random: 105", "This value is made with random: 82"], "type": "htmltooltip", "id": "el403294493198352pts", "hoffset": 10}], "data": {"data01": [[1.1905159212985423, -1.1495356154863399], [0.07405126192742992, 0.8249327983596783], [0.2888316627977426, 0.49931674588785024], [0.32410705099510856, 0.24058544865064316], [1.2271514616698793, -1.7323033486173012], [-1.055010858511086, -0.5310962824376549], [0.6342829722922522, 1.2169225048944923], [1.2702662054657452, -0.3848076898360993], [1.1312418097513413, 1.064536203878233], [1.199867631564834, -0.003034669904700178], [-0.12283278732030965, -0.12455881368967142], [-0.40450263431692324, 0.5006237739253093], [1.0655561689014938, 0.6954942518208072], [-1.5491427111085312, 0.9369587314094701], [-1.1086949755933273, 0.9531205743875348], [-1.121429414536725, -0.6164892250339167], [-1.2755542224538845, -0.08317399931585467], [-0.6388367484420825, -0.7695405130088252], [2.4067423033407733, -1.5568768476877308], [-0.22326080248406896, -0.8032767829174247], [-0.6742692528702551, 0.6969511053655687], [1.227041043723607, 0.5073437426190437], [0.3225981474845363, -0.3218502801175824], [-0.07966710576517443, 0.35313873808031704], [0.8943952190417054, -1.5376817160144471], [0.5518137645231318, -0.273161823495056], [-1.1744490473680802, -0.41922844826438255], [0.6816082223060739, -0.0029454909958136523], [1.403318400918322, 0.06741015542711695], [-1.4335063625576951, -0.5646714137599648], [0.06437947201613546, -0.4654504138252764], [-1.3716746265700832, 0.03865283728212759], [0.20734426067771158, -1.1943514466074108], [-0.7679574112744387, -0.6964049590056678], [-0.23241485442331944, -0.3650935706199646], [0.4282042416575668, 0.1852752619777613], [-0.08790805471127708, 0.060385792388830094], [-0.026520118168857458, 0.2544761777188617], [-0.3578748510739403, 0.7798607179034043], [-1.4455259902508113, 1.0986582681569776], [0.14406771617882042, 0.7838908999747726], [-0.05897491667643128, 0.033570912023765824], [1.6460803352907578, -1.0809360019386942], [-0.4661553999165973, -0.9058092400795242], [-1.1039456260428195, 2.6020399105794683], [0.7006033059455155, -0.6851627705562313], [2.576510204786726, -0.8730610905559979], [1.0794640108439422, -0.5201196540130941], [-1.9030834033687412, 0.5644689281282732], [0.4405106554729312, 0.1667019261059556]]}, "id": "el403294492308432"});
+   }(mpld3);
+}else if(typeof define === "function" && define.amd){
+   // require.js is available: use it to load d3/mpld3
+   require.config({paths: {d3: "https://mpld3.github.io/js/d3.v3.min"}});
+   require(["d3"], function(d3){
+      window.d3 = d3;
+      mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+         
+    mpld3.register_plugin("htmltooltip", HtmlTooltipPlugin);
+    HtmlTooltipPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HtmlTooltipPlugin.prototype.constructor = HtmlTooltipPlugin;
+    HtmlTooltipPlugin.prototype.requiredProps = ["id"];
+    HtmlTooltipPlugin.prototype.defaultProps = {labels:null, hoffset:0, voffset:10};
+    function HtmlTooltipPlugin(fig, props){
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HtmlTooltipPlugin.prototype.draw = function(){
+       var obj = mpld3.get_element(this.props.id);
+       var labels = this.props.labels;
+       var tooltip = d3.select("body").append("div")
+                    .attr("class", "mpld3-tooltip")
+                    .style("position", "absolute")
+                    .style("z-index", "10")
+                    .style("visibility", "hidden");
+
+       obj.elements()
+           .on("mouseover", function(d, i){
+                              tooltip.html(labels[i])
+                                     .style("visibility", "visible");})
+           .on("mousemove", function(d, i){
+                    tooltip
+                      .style("top", d3.event.pageY + this.props.voffset + "px")
+                      .style("left",d3.event.pageX + this.props.hoffset + "px");
+                 }.bind(this))
+           .on("mouseout",  function(d, i){
+                           tooltip.style("visibility", "hidden");});
+    };
+    
+         mpld3.draw_figure("fig_el4032944923084321301619155", {"axes": [{"xlim": [-2.0, 3.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "x", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el403294492493392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "y", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.0546875, 0.5], "rotation": -90.0, "id": "el403294492537744"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "HTML tooltips", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 20.0, "position": [0.5, 1.0144675925925926], "rotation": -0.0, "id": "el403294492192784"}], "zoomable": true, "images": [], "xdomain": [-2.0, 3.0], "ylim": [-2.0, 3.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [{"edgecolor": "#000000", "facecolor": "#0000FF", "edgewidth": 1, "yindex": 1, "coordinates": "data", "zorder": 2, "markerpath": [[[0.0, 7.5], [1.9890232500000002, 7.5], [3.896849030886401, 6.709752686911813], [5.303300858899107, 5.303300858899107], [6.709752686911813, 3.896849030886401], [7.5, 1.9890232500000002], [7.5, 0.0], [7.5, -1.9890232500000002], [6.709752686911813, -3.896849030886401], [5.303300858899107, -5.303300858899107], [3.896849030886401, -6.709752686911813], [1.9890232500000002, -7.5], [0.0, -7.5], [-1.9890232500000002, -7.5], [-3.896849030886401, -6.709752686911813], [-5.303300858899107, -5.303300858899107], [-6.709752686911813, -3.896849030886401], [-7.5, -1.9890232500000002], [-7.5, 0.0], [-7.5, 1.9890232500000002], [-6.709752686911813, 3.896849030886401], [-5.303300858899107, 5.303300858899107], [-3.896849030886401, 6.709752686911813], [-1.9890232500000002, 7.5], [0.0, 7.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]], "alpha": 0.6, "xindex": 0, "data": "data01", "id": "el403294493198352pts"}], "id": "el403294489549136", "ydomain": [-2.0, 3.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"voffset": 10, "labels": ["This value is made with random: 14", "This value is made with random: 47", "This value is made with random: 76", "This value is made with random: 7", "This value is made with random: 26", "This value is made with random: 91", "This value is made with random: 91", "This value is made with random: 9", "This value is made with random: 18", "This value is made with random: 95", "This value is made with random: 58", "This value is made with random: 3", "This value is made with random: 97", "This value is made with random: 76", "This value is made with random: 38", "This value is made with random: 29", "This value is made with random: 72", "This value is made with random: 103", "This value is made with random: 89", "This value is made with random: 54", "This value is made with random: 22", "This value is made with random: 9", "This value is made with random: 38", "This value is made with random: 122", "This value is made with random: 120", "This value is made with random: 46", "This value is made with random: 112", "This value is made with random: 116", "This value is made with random: 21", "This value is made with random: 44", "This value is made with random: 41", "This value is made with random: 39", "This value is made with random: 78", "This value is made with random: 26", "This value is made with random: 112", "This value is made with random: 2", "This value is made with random: 3", "This value is made with random: 33", "This value is made with random: 32", "This value is made with random: 83", "This value is made with random: 98", "This value is made with random: 25", "This value is made with random: 61", "This value is made with random: 36", "This value is made with random: 87", "This value is made with random: 7", "This value is made with random: 7", "This value is made with random: 59", "This value is made with random: 105", "This value is made with random: 82"], "type": "htmltooltip", "id": "el403294493198352pts", "hoffset": 10}], "data": {"data01": [[1.1905159212985423, -1.1495356154863399], [0.07405126192742992, 0.8249327983596783], [0.2888316627977426, 0.49931674588785024], [0.32410705099510856, 0.24058544865064316], [1.2271514616698793, -1.7323033486173012], [-1.055010858511086, -0.5310962824376549], [0.6342829722922522, 1.2169225048944923], [1.2702662054657452, -0.3848076898360993], [1.1312418097513413, 1.064536203878233], [1.199867631564834, -0.003034669904700178], [-0.12283278732030965, -0.12455881368967142], [-0.40450263431692324, 0.5006237739253093], [1.0655561689014938, 0.6954942518208072], [-1.5491427111085312, 0.9369587314094701], [-1.1086949755933273, 0.9531205743875348], [-1.121429414536725, -0.6164892250339167], [-1.2755542224538845, -0.08317399931585467], [-0.6388367484420825, -0.7695405130088252], [2.4067423033407733, -1.5568768476877308], [-0.22326080248406896, -0.8032767829174247], [-0.6742692528702551, 0.6969511053655687], [1.227041043723607, 0.5073437426190437], [0.3225981474845363, -0.3218502801175824], [-0.07966710576517443, 0.35313873808031704], [0.8943952190417054, -1.5376817160144471], [0.5518137645231318, -0.273161823495056], [-1.1744490473680802, -0.41922844826438255], [0.6816082223060739, -0.0029454909958136523], [1.403318400918322, 0.06741015542711695], [-1.4335063625576951, -0.5646714137599648], [0.06437947201613546, -0.4654504138252764], [-1.3716746265700832, 0.03865283728212759], [0.20734426067771158, -1.1943514466074108], [-0.7679574112744387, -0.6964049590056678], [-0.23241485442331944, -0.3650935706199646], [0.4282042416575668, 0.1852752619777613], [-0.08790805471127708, 0.060385792388830094], [-0.026520118168857458, 0.2544761777188617], [-0.3578748510739403, 0.7798607179034043], [-1.4455259902508113, 1.0986582681569776], [0.14406771617882042, 0.7838908999747726], [-0.05897491667643128, 0.033570912023765824], [1.6460803352907578, -1.0809360019386942], [-0.4661553999165973, -0.9058092400795242], [-1.1039456260428195, 2.6020399105794683], [0.7006033059455155, -0.6851627705562313], [2.576510204786726, -0.8730610905559979], [1.0794640108439422, -0.5201196540130941], [-1.9030834033687412, 0.5644689281282732], [0.4405106554729312, 0.1667019261059556]]}, "id": "el403294492308432"});
+      });
+    });
+}else{
+    // require.js not available: dynamically load d3 & mpld3
+    mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
+         mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
+                 
+    mpld3.register_plugin("htmltooltip", HtmlTooltipPlugin);
+    HtmlTooltipPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    HtmlTooltipPlugin.prototype.constructor = HtmlTooltipPlugin;
+    HtmlTooltipPlugin.prototype.requiredProps = ["id"];
+    HtmlTooltipPlugin.prototype.defaultProps = {labels:null, hoffset:0, voffset:10};
+    function HtmlTooltipPlugin(fig, props){
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    HtmlTooltipPlugin.prototype.draw = function(){
+       var obj = mpld3.get_element(this.props.id);
+       var labels = this.props.labels;
+       var tooltip = d3.select("body").append("div")
+                    .attr("class", "mpld3-tooltip")
+                    .style("position", "absolute")
+                    .style("z-index", "10")
+                    .style("visibility", "hidden");
+
+       obj.elements()
+           .on("mouseover", function(d, i){
+                              tooltip.html(labels[i])
+                                     .style("visibility", "visible");})
+           .on("mousemove", function(d, i){
+                    tooltip
+                      .style("top", d3.event.pageY + this.props.voffset + "px")
+                      .style("left",d3.event.pageX + this.props.hoffset + "px");
+                 }.bind(this))
+           .on("mouseout",  function(d, i){
+                           tooltip.style("visibility", "hidden");});
+    };
+    
+                 mpld3.draw_figure("fig_el4032944923084321301619155", {"axes": [{"xlim": [-2.0, 3.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [{"v_baseline": "hanging", "h_anchor": "middle", "color": "#000000", "text": "x", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [0.5, -0.059895833333333329], "rotation": -0.0, "id": "el403294492493392"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "y", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 12.0, "position": [-0.0546875, 0.5], "rotation": -90.0, "id": "el403294492537744"}, {"v_baseline": "auto", "h_anchor": "middle", "color": "#000000", "text": "HTML tooltips", "coordinates": "axes", "zorder": 3, "alpha": 1, "fontsize": 20.0, "position": [0.5, 1.0144675925925926], "rotation": -0.0, "id": "el403294492192784"}], "zoomable": true, "images": [], "xdomain": [-2.0, 3.0], "ylim": [-2.0, 3.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"color": "#000000", "alpha": 0.3, "dasharray": "2,2", "gridOn": true}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [{"edgecolor": "#000000", "facecolor": "#0000FF", "edgewidth": 1, "yindex": 1, "coordinates": "data", "zorder": 2, "markerpath": [[[0.0, 7.5], [1.9890232500000002, 7.5], [3.896849030886401, 6.709752686911813], [5.303300858899107, 5.303300858899107], [6.709752686911813, 3.896849030886401], [7.5, 1.9890232500000002], [7.5, 0.0], [7.5, -1.9890232500000002], [6.709752686911813, -3.896849030886401], [5.303300858899107, -5.303300858899107], [3.896849030886401, -6.709752686911813], [1.9890232500000002, -7.5], [0.0, -7.5], [-1.9890232500000002, -7.5], [-3.896849030886401, -6.709752686911813], [-5.303300858899107, -5.303300858899107], [-6.709752686911813, -3.896849030886401], [-7.5, -1.9890232500000002], [-7.5, 0.0], [-7.5, 1.9890232500000002], [-6.709752686911813, 3.896849030886401], [-5.303300858899107, 5.303300858899107], [-3.896849030886401, 6.709752686911813], [-1.9890232500000002, 7.5], [0.0, 7.5]], ["M", "C", "C", "C", "C", "C", "C", "C", "C", "Z"]], "alpha": 0.6, "xindex": 0, "data": "data01", "id": "el403294493198352pts"}], "id": "el403294489549136", "ydomain": [-2.0, 3.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"voffset": 10, "labels": ["This value is made with random: 14", "This value is made with random: 47", "This value is made with random: 76", "This value is made with random: 7", "This value is made with random: 26", "This value is made with random: 91", "This value is made with random: 91", "This value is made with random: 9", "This value is made with random: 18", "This value is made with random: 95", "This value is made with random: 58", "This value is made with random: 3", "This value is made with random: 97", "This value is made with random: 76", "This value is made with random: 38", "This value is made with random: 29", "This value is made with random: 72", "This value is made with random: 103", "This value is made with random: 89", "This value is made with random: 54", "This value is made with random: 22", "This value is made with random: 9", "This value is made with random: 38", "This value is made with random: 122", "This value is made with random: 120", "This value is made with random: 46", "This value is made with random: 112", "This value is made with random: 116", "This value is made with random: 21", "This value is made with random: 44", "This value is made with random: 41", "This value is made with random: 39", "This value is made with random: 78", "This value is made with random: 26", "This value is made with random: 112", "This value is made with random: 2", "This value is made with random: 3", "This value is made with random: 33", "This value is made with random: 32", "This value is made with random: 83", "This value is made with random: 98", "This value is made with random: 25", "This value is made with random: 61", "This value is made with random: 36", "This value is made with random: 87", "This value is made with random: 7", "This value is made with random: 7", "This value is made with random: 59", "This value is made with random: 105", "This value is made with random: 82"], "type": "htmltooltip", "id": "el403294493198352pts", "hoffset": 10}], "data": {"data01": [[1.1905159212985423, -1.1495356154863399], [0.07405126192742992, 0.8249327983596783], [0.2888316627977426, 0.49931674588785024], [0.32410705099510856, 0.24058544865064316], [1.2271514616698793, -1.7323033486173012], [-1.055010858511086, -0.5310962824376549], [0.6342829722922522, 1.2169225048944923], [1.2702662054657452, -0.3848076898360993], [1.1312418097513413, 1.064536203878233], [1.199867631564834, -0.003034669904700178], [-0.12283278732030965, -0.12455881368967142], [-0.40450263431692324, 0.5006237739253093], [1.0655561689014938, 0.6954942518208072], [-1.5491427111085312, 0.9369587314094701], [-1.1086949755933273, 0.9531205743875348], [-1.121429414536725, -0.6164892250339167], [-1.2755542224538845, -0.08317399931585467], [-0.6388367484420825, -0.7695405130088252], [2.4067423033407733, -1.5568768476877308], [-0.22326080248406896, -0.8032767829174247], [-0.6742692528702551, 0.6969511053655687], [1.227041043723607, 0.5073437426190437], [0.3225981474845363, -0.3218502801175824], [-0.07966710576517443, 0.35313873808031704], [0.8943952190417054, -1.5376817160144471], [0.5518137645231318, -0.273161823495056], [-1.1744490473680802, -0.41922844826438255], [0.6816082223060739, -0.0029454909958136523], [1.403318400918322, 0.06741015542711695], [-1.4335063625576951, -0.5646714137599648], [0.06437947201613546, -0.4654504138252764], [-1.3716746265700832, 0.03865283728212759], [0.20734426067771158, -1.1943514466074108], [-0.7679574112744387, -0.6964049590056678], [-0.23241485442331944, -0.3650935706199646], [0.4282042416575668, 0.1852752619777613], [-0.08790805471127708, 0.060385792388830094], [-0.026520118168857458, 0.2544761777188617], [-0.3578748510739403, 0.7798607179034043], [-1.4455259902508113, 1.0986582681569776], [0.14406771617882042, 0.7838908999747726], [-0.05897491667643128, 0.033570912023765824], [1.6460803352907578, -1.0809360019386942], [-0.4661553999165973, -0.9058092400795242], [-1.1039456260428195, 2.6020399105794683], [0.7006033059455155, -0.6851627705562313], [2.576510204786726, -0.8730610905559979], [1.0794640108439422, -0.5201196540130941], [-1.9030834033687412, 0.5644689281282732], [0.4405106554729312, 0.1667019261059556]]}, "id": "el403294492308432"});
+            })
+         });
+}
+</script>
